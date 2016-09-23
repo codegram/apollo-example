@@ -1,0 +1,22 @@
+version: '2'
+services:
+  server:
+    build: apollo-server
+    ports:
+      - 3000:3000
+    volumes:
+      - ./apollo-server:/code
+    links:
+      - dogs-api
+  client:
+    build: apollo-client
+    ports:
+      - 8080:8080
+    volumes:
+      - ./apollo-client:/code
+  dogs-api:
+    build: dogs-api
+    ports:
+      - 4000:4000
+    volumes:
+      - ./dogs-api:/code

@@ -1,0 +1,8 @@
+<ul>
+  <li><b>Name: </b>{{ dog.name }}</li>
+  <li><b>Age: </b>{{ dog.age }}</li>
+  <li *ngIf="dog.friends && dog.friends.length > 0">
+    <b>Friends: </b>
+    <app-dog *ngFor="let friend of dog.friends" [dog]="friend"></app-dog>
+  </li>
+</ul>
